@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { Form, Button, Panel } from 'rsuite';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
-import { MdEmail, MdLock, MdSecurity } from 'react-icons/md';
+import { MdEmail, MdLock } from 'react-icons/md';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');

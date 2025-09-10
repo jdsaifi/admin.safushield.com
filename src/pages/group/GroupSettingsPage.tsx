@@ -278,7 +278,12 @@ const GroupSettingsPage = () => {
                     <div className="flex gap-6">
                         {/* Left Column - Main Settings */}
                         <div className="flex-1">
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    handleSubmit(onSubmit)();
+                                }}
+                            >
                                 {/* Website */}
                                 <div className="mb-6">
                                     <FormGroup>

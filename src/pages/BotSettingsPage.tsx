@@ -70,7 +70,13 @@ const BotSettingsPage = () => {
                     </div>
 
                     <Panel bordered>
-                        <Form onSubmit={handleSubmit(onSubmit)} fluid>
+                        <Form
+                            onSubmit={(_, event) => {
+                                event?.preventDefault();
+                                handleSubmit(onSubmit)();
+                            }}
+                            fluid
+                        >
                             {/* banned words list */}
                             <Controller
                                 name="banned_words"
