@@ -180,6 +180,7 @@ const GroupsPage = () => {
                                         <Badge
                                             content={rowData.stats.users}
                                             color="blue"
+                                            maxCount={999999}
                                         />
                                     )}
                                 </Cell>
