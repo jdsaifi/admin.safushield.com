@@ -10,6 +10,7 @@ import GroupsPage from './pages/GroupsPage';
 import GroupSettingsPage from './pages/group/GroupSettingsPage';
 import BotSettingsPage from './pages/BotSettingsPage';
 import { Toaster } from 'sonner';
+import BuyBotPage from './pages/group/BuyBotPage';
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,14 @@ function App() {
                             element={
                                 <ProtectedRoute>
                                     <GroupSettingsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/groups/:groupId/buybot"
+                            element={
+                                <ProtectedRoute>
+                                    <BuyBotPage />
                                 </ProtectedRoute>
                             }
                         />

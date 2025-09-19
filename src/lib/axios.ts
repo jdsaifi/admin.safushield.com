@@ -1,4 +1,8 @@
-import axios, { InternalAxiosRequestConfig, AxiosError } from 'axios';
+import axios, {
+    InternalAxiosRequestConfig,
+    AxiosError,
+    AxiosResponse,
+} from 'axios';
 import { useAuthStore } from '../stores/authStore';
 
 const api = axios.create({
@@ -19,6 +23,24 @@ api.interceptors.request.use(
         return config;
     },
     (error: AxiosError) => {
+        return Promise.reject(error);
+    }
+);
+
+// Add a response interceptor to handle 401 Unauthorized errors
+api.interceptors.response.use(
+    (response: AxiosResponse) => {
+        return response;
+    },
+    (error: AxiosError) => {
+        if (error.response?.status === 401) {
+            // Clear access token and logout user
+            const authStore = useAuthStore.getState();
+            authStore.logout();
+
+            // Redirect to login page
+            window.location.href = '/login';
+        }
         return Promise.reject(error);
     }
 );

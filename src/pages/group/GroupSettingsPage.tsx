@@ -1345,10 +1345,26 @@ const GroupSettingsPage = () => {
                                 </div>
 
                                 {/* View All Groups Link */}
-                                <div className="mt-6 pt-4 border-t border-gray-200">
+                                <div className="mt-6 pt-4 border-t border-gray-200 gap-4">
                                     <Button
                                         appearance="ghost"
                                         className="w-full"
+                                        style={{
+                                            display: 'block',
+                                            marginBottom: '10px',
+                                        }}
+                                        onClick={() =>
+                                            navigate(
+                                                `/groups/${group?._id}/buybot`
+                                            )
+                                        }
+                                    >
+                                        Group BuyBot Settings
+                                    </Button>
+
+                                    <Button
+                                        appearance="ghost"
+                                        className="w-full mt-4 block"
                                         onClick={() => navigate('/groups')}
                                     >
                                         View all groups
